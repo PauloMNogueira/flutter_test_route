@@ -1,16 +1,26 @@
-# base_app
+# Flutter test separate packages
 
-A new Flutter project.
+## base_app
 
-## Getting Started
+App principal onde o módulo de rota será acoplado.
+Módulo responsável por configurações comuns a todos os outros módulos, tal como Chaves, Cores, Identificação do Shopping, etc...
+Se comunica *APENAS* com o módulo de rota. 
+## module_route
 
-This project is a starting point for a Flutter application.
+Módulo de roteamento de módulos.
+Reponsável pela navegação entre todos os módulos do projeto.
+Se comunica com todos os módulos externos (packages) e com o base_app
 
-A few resources to get you started if this is your first Flutter project:
+## module_loyalty, module_superapp, module_ticket
+Módulo de feature.
+Se comunica apenas com o módulo de rota (module_route)
+Pode ter uma rota própria para navegação de dentro do módulo
+(loyalty/profile ou loyalty/tickets ou loyalty/stores, etc...)
+Os módulos de feature *não se comunicam entre si* 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Esquema de estrutura](./diagram.png "Text to show on mouseover")
+
+
+
+
